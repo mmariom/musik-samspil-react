@@ -1,0 +1,132 @@
+#navbarId {
+  height: 80px;
+  border: 2px solid #DDDDDD;
+  border-bottom: 1px solid #DDDDDD;
+}
+
+#logoColumnd {
+  margin-left: 40px;
+}
+
+#musiksamspil-logo {
+  color: #BF1E2E;
+  font-size: 27px;
+  font-family: Oswald, sans-serif;
+}
+
+#subLogo {
+  font-size: 13px;
+  border-color: #353A5D;
+  font-family: Montserrat, sans-serif;
+}
+
+#opslag-button {
+  font-family: Montserrat, sans-serif;
+  color: #353A5D;
+  font-weight: bold;
+}
+
+#profil-button {
+  font-family: Montserrat, sans-serif;
+  color: #353A5D;
+  font-weight: bold;
+  font-size: 16px;
+  margin-left: 16px;
+}
+
+#opret-button {
+  background: #353A5D;
+  border-radius: 10px;
+  border-top-left-radius: 10px;
+  padding-left: 30px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  padding-right: 30px;
+  width: 172px;
+  height: 50px;
+  margin-left: 15px;
+}
+
+#header-col1 {
+  margin-right: 40px;
+}
+
+#login-button {
+  font-family: Montserrat, sans-serif;
+  color: rgb(53,58,93);
+  background: rgb(255,255,255);
+  border-radius: 10px;
+  border: 3px solid #DDDDDD;
+  width: 124px;
+  height: 50px;
+  margin-left: 15px;
+}
+
+#hero-01 {
+  height: 600px;
+  /*background-image: url(https://cdn.bootstrapstudio.io/placeholders/1400x800.png);*/
+  background-position: center;
+  background-size: cover;
+}
+
+#heroid {
+  min-height: 100vh;
+}
+
+#hero-title {
+  color: rgb(191,30,46);
+}
+
+#hero-dropdown {
+  width: 199.758px;
+  height: 40px;
+  background: var(--bs-btn-disabled-color);
+  color: #777777;
+  text-align: center;
+  margin: 0px;
+  border-radius: 25px;
+}
+
+#hero-button {
+  background: rgb(53,58,93);
+  height: 41px;
+  width: 200.2734px;
+}
+
+#footerID {
+  --bs-dark: #bf1e2e;
+  --bs-dark-rgb: 191,30,46;
+}
+
+body {
+  min-height: 100%;
+}
+
+#navbarId {
+  background: #ffffff;
+}
+
+#hero-image {
+  width: 40vw;
+}
+
+#features_card_img {
+  font-size: 35px;
+  color: #353A5D;
+}
+
+#feature_cards_container {
+  margin-bottom: 20vh;
+}
+
+#feature_card_semore {
+  color: #bf1e2e;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+
+
+#loginregisterbutton{
+  background: rgb(191,30,46);
+}
