@@ -1,7 +1,33 @@
-import React from 'react'
+
+import React,{useState,useEffect} from 'react'
+import axios from 'axios'
+import CardHomepage from '../components/CardHomepage'
+
+
 
 
 const HomeScreen = () => {
+
+const [fetchData , setFetchData]= useState([])
+    
+    useEffect( () => {
+        async function fetchData() {
+            try{
+                const response = await axios.get(`http://localhost:3030/group/all`)
+                // console.log(response.data)
+                setFetchData(response.data)
+            }
+            catch(error){
+                // console.log(error);
+            }}
+        
+            fetchData()
+        },[])   
+
+
+
+
+
   return (
     
     <>
@@ -39,70 +65,26 @@ const HomeScreen = () => {
     <h2 id="features_card_img">Seneste opslag</h2>
     <p className="w-lg-50" id="feature_card_semore" >Se alle opslag</p>
 </div>
+    <div className="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
+      
+    
+      {(fetchData.length === 0) 
+      
+      ?  <h3> Sorry but you dont have groups :( </h3>
+      
+      :fetchData.map(item =>{
+       return(
+           <CardHomepage value={item} />
+       )
+    
+      })}
+         
 
 
-        <div className="row gy-4 row-cols-1 row-cols-md-2 row-cols-xl-3">
-            <div className="col">
-                <div className="card">
-                    <div className="card-body p-4">
-                        <h4 className="card-title">Some strange title</h4>
-                        <p className="card-text">Aarhus Amatørsymfoniorkester</p>
-                        <p className="card-text">Violin</p>
-                        <p className="card-text">3. marts •&nbsp;8100 Aarhus C</p>
-                    </div>
-                </div>
-            </div>
-            <div className="col">
-                <div className="card">
-                    <div className="card-body p-4">
-                        <h4 className="card-title">Some strange title</h4>
-                        <p className="card-text">Aarhus Amatørsymfoniorkester</p>
-                        <p className="card-text">Violin</p>
-                        <p className="card-text">3. marts •&nbsp;8100 Aarhus C</p>
-                    </div>
-                </div>
-            </div>
-            <div className="col">
-                <div className="card">
-                    <div className="card-body p-4">
-                        <h4 className="card-title">Some strange title</h4>
-                        <p className="card-text">Aarhus Amatørsymfoniorkester</p>
-                        <p className="card-text">Violin</p>
-                        <p className="card-text">3. marts •&nbsp;8100 Aarhus C</p>
-                    </div>
-                </div>
-            </div>
-            <div className="col">
-                <div className="card">
-                    <div className="card-body p-4">
-                        <h4 className="card-title">Some strange title</h4>
-                        <p className="card-text">Aarhus Amatørsymfoniorkester</p>
-                        <p className="card-text">Violin</p>
-                        <p className="card-text">3. marts •&nbsp;8100 Aarhus C</p>
-                    </div>
-                </div>
-            </div>
-            <div className="col">
-                <div className="card">
-                    <div className="card-body p-4">
-                        <h4 className="card-title">Some strange title</h4>
-                        <p className="card-text">Aarhus Amatørsymfoniorkester</p>
-                        <p className="card-text">Violin</p>
-                        <p className="card-text">3. marts •&nbsp;8100 Aarhus C</p>
-                    </div>
-                </div>
-            </div>
-            <div className="col">
-                <div className="card">
-                    <div className="card-body p-4">
-                        <h4 className="card-title">Some strange title</h4>
-                        <p className="card-text">Aarhus Amatørsymfoniorkester</p>
-                        <p className="card-text">Violin</p>
-                        <p className="card-text">3. marts •&nbsp;8100 Aarhus C</p>
-                    </div>
-                </div>
-            </div>
-        </div>
+   </div>
+
+
+
     </div>
     </>
   )

@@ -1,9 +1,21 @@
 import React from 'react'
 import {Link} from 'react-router-dom';
+import { useContext } from 'react';
+import AuthContext from '../store/auth-context';
 
 
 
 const Header = () => {
+
+
+    const authContext = useContext(AuthContext)    
+
+    const isLoggedIn = authContext.isLoggedIn
+
+    const logoutHandler = () =>{
+        authContext.logout()
+    }
+
   return (
     <div className="navbar navbar-light navbar-expand-md sticky-top py-3" id="navbarId" testid="">
     <div className="container-fluid">
@@ -18,8 +30,27 @@ const Header = () => {
                 <ul className="navbar-nav d-xxl-flex ms-auto align-items-xxl-center">
                     <li className="nav-item d-xxl-flex align-items-xxl-center"><a className="nav-link active d-xxl-flex justify-content-xxl-center align-items-xxl-center" id="opslag-button" href="#">Opslag</a></li>
                     <li className="nav-item d-xxl-flex align-items-xxl-center"> <Link to="/profile" className="nav-link" id="profil-button"> Profil</Link></li>
-                    <li className="nav-item"><Link to="/signup"><button className="btn btn-primary" id="opret-button" type="button">Opret bruger</button></Link></li>
-                    <li className="nav-item"><Link to="/login"><button className="btn btn-primary" id="login-button" type="button">Log ind</button></Link></li>
+                    
+            
+                    {!isLoggedIn &&(
+                        <>
+                        <li className="nav-item"><Link to="/signup"><button className="btn btn-primary" id="opret-button" type="button">Opret bruger</button></Link></li>
+                        <li className="nav-item"><Link to="/login"><button className="btn btn-primary" id="login-button" type="button">Log ind</button></Link></li>
+                        </>
+                    )}
+
+
+                    {isLoggedIn &&(
+                        <>
+
+                        <li className="nav-item d-xxl-flex align-items-xxl-center"> <Link to="/creategroup" className="nav-link" id="profil-button"> Create Group</Link></li>
+                        <li className="nav-item d-xxl-flex align-items-xxl-center"> <Link to="/mygroups" className="nav-link" id="profil-button"> My Groups</Link></li>
+
+                         <li className="nav-item"><Link to="/login"><button onClick={logoutHandler} className="btn btn-primary" id="login-button" type="button">Log out</button></Link></li>
+
+                        </>
+                    )}
+
                 </ul>
             </div>
         </div>

@@ -1,18 +1,35 @@
 import React,{useRef,useState,useEffect,useContext} from 'react'
 import { useNavigate } from "react-router-dom";
-
+import AuthContext from '../store/auth-context';
 import axios from 'axios'
 
 
-const RegisterScreen = () => {
+
+
+const CreateGroupScreen = () => {
+
   
-    const emailInputRef = useRef();
-    const passwordInputRef = useRef();
-    const nameInputRef = useRef();
-    const phoneInputRef = useRef();
+
+
+const authContext = useContext(AuthContext)    
+const authToken = authContext.token
+
+  
+    const titleInputRef = useRef();
+    const instrumentInputRef = useRef();
+    const descriptionInputRef = useRef();
+    const locationInputRef = useRef();
+    const contactInputRef = useRef();
 
     const navigate = useNavigate();
 
+
+    const config = {
+        headers: {
+         
+            "Authorization": `Bearer ${authToken}`,
+        },
+    };    
     
     const [registError, setRegistError] = useState(false);
     const [registErrorMessage, setRegistErrorMessage] = useState([]);
@@ -21,65 +38,52 @@ const RegisterScreen = () => {
     
     let arrOfErrors = []
     const handleSubmit = async (e) => {
+
         e.preventDefault();
         setRegistErrorMessage([])
         setRegistError(false)
         setRegistrationSucc(false)
-        console.log("button clicked")
-        const enteredEmail = emailInputRef.current.value;
-        const enteredPass= passwordInputRef.current.value;
-        const enteredName= nameInputRef.current.value;
-        const enteredPhone= phoneInputRef.current.value;
+        // console.log("button clicked")
+        // console.log(authToken)
+        const enteredTitle = titleInputRef.current.value;
+        const enteredInstrument= instrumentInputRef.current.value;
+        const enteredDescription= descriptionInputRef.current.value;
+        const enteredLocation= locationInputRef.current.value;
+        const enteredContact= contactInputRef.current.value;
     
       
-        axios.post('http://localhost:3030/user/register', {
-            email: enteredEmail,
-            password: enteredPass,
-            name: enteredName,
-            phone: enteredPhone
-          }).then(function (response) {
+        axios.post('http://localhost:3030/group/create', {
+            title: enteredTitle,
+            instrument: enteredInstrument,
+            description: enteredDescription,
+            location: enteredLocation,
+            contact: enteredContact
+          },config).then(function (response) {
             
             //display message succesfully registrated
 
             console.log(response);
             setRegistrationSucc(true)
+
             //clear form 
             e.target.reset();
 
-            // redirect to login screen
-            setTimeout(function() {
-                    navigate("/login");
-                  }, 4500);
+
           })
           .catch(function (error) {
 
+
             //display errror message
-
-            if (!(error.response.data.message)) {
-                console.log("Authentication failed!")
-               alert("Authentication failed!")
-            }
-            else{
-            //display errror message
-
-                // console.log(error.response.data.message);
-
-
             const allErrors = error.response.data.message
            
             for (let error = 0; error < allErrors.length; error++) {
                 const errorSingle = allErrors[error];
                 arrOfErrors.push(errorSingle)
-                
-                
-    
+   
             }
             
             setRegistError(true)
             setRegistErrorMessage(arrOfErrors)
-                
-            }
-            
 
           });
       
@@ -92,7 +96,7 @@ const RegisterScreen = () => {
         <div className="container">
             <div className="row mb-5">
                 <div className="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2>Sign up or die ....</h2>
+                    <h2>Create the Group</h2>
                     <p className="w-lg-50"></p>
                 </div>
             </div>
@@ -109,7 +113,7 @@ const RegisterScreen = () => {
                                 <div class="alert alert-success" role="alert"><span><strong>Alert</strong> text.</span></div> */}
                                 
                                 {registrationSucc ? 
-                                <div class="alert alert-success" role="alert"><span><strong>Yea</strong> your acccount has been created ! </span></div>
+                                <div class="alert alert-success" role="alert"><span><strong>Yea</strong> group has been created !</span></div>
                                     : ""
                                 }
                                 {!registError ? "" : <div class="alert alert-danger" role="alert"><span><strong>Error : </strong> {
@@ -123,11 +127,14 @@ const RegisterScreen = () => {
                                 }</span></div> }
 
                             <form onSubmit={handleSubmit} className="text-center" method="post">
-                                <div className="mb-3"><input  ref={nameInputRef} className="form-control" type="text" placeholder="Full Name" name="fullname"/></div>
-                                <div className="mb-3"><input ref={emailInputRef}className="form-control" type="email" name="email" placeholder="Email"/></div>
-                                <div className="mb-3"><input ref={passwordInputRef} className="form-control" type="password" name="password" placeholder="Password"/></div>
-                                <div className="mb-3"><input ref={phoneInputRef} className="form-control" type="text" placeholder="Phone no" name="phoneno"/></div>
-                                <div className="mb-3"><button className="btn btn-primary d-block w-100" type="submit" id="loginregisterbutton">Register</button></div>
+                                <div className="mb-3"><input  ref={titleInputRef} className="form-control" type="text" placeholder="Title" name="title"/></div>
+                                <div className="mb-3"><input  ref={instrumentInputRef} className="form-control" type="text" placeholder="Instrument" name="instrument"/></div>
+                                <div className="mb-3"><textarea ref={descriptionInputRef} className="form-control" type="text" placeholder="Description" name="description"/></div>
+                                <div className="mb-3"><input  ref={locationInputRef} className="form-control" type="text" placeholder="Location" name="location"/></div>
+                                <div className="mb-3"><input  ref={contactInputRef} className="form-control" type="text" placeholder="Contact" name="contact"/></div>
+
+            
+                                <div className="mb-3"><button className="btn btn-primary d-block w-100" type="submit" id="loginregisterbutton">Create Group</button></div>
                             </form>
                         </div>
                     </div>
@@ -140,4 +147,4 @@ const RegisterScreen = () => {
   )
 }
 
-export default RegisterScreen
+export default CreateGroupScreen
