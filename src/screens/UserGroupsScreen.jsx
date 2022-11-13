@@ -29,7 +29,7 @@ const [fetchData , setFetchData]= useState([])
     useEffect( () => {
         async function fetchData() {
             try{
-                const response = await axios.get(`http://localhost:3030/group/findusergroups`, config)
+                const response = await axios.get(`http://localhost:3030/user/groups`, config)
                 console.log(response.data)
                 setFetchData(response.data)
             }
