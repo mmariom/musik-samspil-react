@@ -1,13 +1,26 @@
-import React, {useState,useEffect} from 'react'
+import React, {useState,useEffect,useContext} from 'react'
 import{useParams} from 'react-router-dom'
 import axios from 'axios'
+import AuthContext from '../store/auth-context';
 
 
 
 const SingleGroup = () => {
 
     const params =  useParams();
-    // console.log(params.id);
+    console.log( "params id "+ params.id);
+
+
+
+    const authContext = useContext(AuthContext)    
+    const authToken = authContext.token
+
+    const config = {
+        headers: {
+         
+            "Authorization": `Bearer ${authToken}`,
+        },
+    }; 
 
 const [title,setTitle] = useState("Title")
 const [instrument,setInstrument] = useState("Instrument")
@@ -16,6 +29,8 @@ const [description,setDescription] = useState("Description")
 const [location,setLocation] = useState("location")
 const [contact,setContact] = useState("Contact ")
 const [createdAt,setCreatedAt] = useState()
+const [assignedPeople,setAssignedPeople] = useState()
+
    
 
 useEffect( () => {
@@ -30,7 +45,23 @@ useEffect( () => {
             setInstrument(response.data.instrument)
             setUsername(response.data.userName)
             setLocation(response.data.location)
+            let arrayOfNames = []
+            let pole = response.data.assignedUsers
             
+            // console.log("pole pod tymto");
+            // console.log(pole)
+
+
+
+            // finding names from json object
+            for (let index = 0; index < pole.length; index++) {
+                const element = pole[index];
+                arrayOfNames.push(element.name)
+            }
+            setAssignedPeople(arrayOfNames)
+
+
+
             // Edit date ................
             let fetchedDate = response.data.createdAt
 
@@ -49,6 +80,16 @@ useEffect( () => {
     
         fetchData()
     },[])   
+
+
+
+const  addToGroupHandler = async ()  => {
+    console.log("addToGroupHandler  param group id passeds" + params.id + "config id "  + authToken);
+
+    const response = await axios.get(`http://localhost:3030/assignUserToGroup/${params.id}`,config)
+    console.log("on addbuttonclick" + response);
+
+}
 
   
 
@@ -81,6 +122,10 @@ useEffect( () => {
                                 <div className="mb-3"  name="location" >{location}</div>
                                 <div className="mb-3"  name="contact">{contact}</div>
                                 <div className="mb-3"  name="contact">{createdAt}</div>
+                                <div className="mb-3"  name="people">{createdAt}</div>
+                                <div className="mb-3"  name="people">{assignedPeople}</div>
+
+                                <button onClick={addToGroupHandler}>Join the group</button>
                             
                         </div>
                     </div>
