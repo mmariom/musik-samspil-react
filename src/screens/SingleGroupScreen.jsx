@@ -88,6 +88,8 @@ const  addToGroupHandler = async ()  => {
 
     const response = await axios.get(`http://localhost:3030/assignUserToGroup/${params.id}`,config)
     console.log("on addbuttonclick" + response);
+    window.location.reload();
+
 
 }
 
