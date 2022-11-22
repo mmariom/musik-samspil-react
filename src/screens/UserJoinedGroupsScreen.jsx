@@ -7,7 +7,7 @@ import {Link} from 'react-router-dom';
 
 
 
-const UserGroupScreen = () => {
+const UserJoinedGroupsScreen = () => {
 
   
 
@@ -29,7 +29,7 @@ const [fetchData , setFetchData]= useState([])
     useEffect( () => {
         async function fetchData() {
             try{
-                const response = await axios.get(`http://localhost:3030/user/groups`, config)
+                const response = await axios.get(`http://localhost:3030/user/userJoinedGroups`, config)
                 console.log(response.data)
                 setFetchData(response.data)
             }
@@ -48,7 +48,7 @@ const [fetchData , setFetchData]= useState([])
         <div className="container">
             <div className="row mb-5">
                 <div className="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2>Groups which were created by user</h2>
+                    <h2>Here you can find the groups i decided to join</h2>
                     <p className="w-lg-50"></p>
                 </div>
             </div>
@@ -56,15 +56,7 @@ const [fetchData , setFetchData]= useState([])
         </div>
 
         <div className="container py-4 py-xl-5" id="feature_cards_container">
-        {/* <div className="row mb-5">
-            <div className="col-md-8 col-xl-3 offset-xl-1 text-center d-xl-flex mx-auto justify-content-xl-center align-items-xl-center">
-                <h2 id="features_card_img">Heading</h2>
-            </div>
-            <div className="col-xl-2 offset-xl-5"></div>
-            <div className="col d-xl-flex justify-content-xl-center align-items-xl-center">
-                <p id="feature_card_semore" className="w-lg-50">Se alle opslag</p>
-            </div>
-        </div> */}
+   
 
 
 <div className="d-flex justify-content-between align-items-center align-content-center mb-4">
@@ -82,7 +74,7 @@ const [fetchData , setFetchData]= useState([])
         // console.log(item.value.name)
         return(
             
-            // <Link to={'http://localhost:3030/group/'+ item._id }>
+        
     
             <CardUser value={item}/>
        
@@ -101,4 +93,4 @@ const [fetchData , setFetchData]= useState([])
   )
 }
 
-export default UserGroupScreen
+export default UserJoinedGroupsScreen

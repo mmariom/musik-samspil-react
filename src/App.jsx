@@ -16,6 +16,8 @@ import AuthContext from './store/auth-context';
 import CreateGroupScreen from './screens/CreateGroupScreen';
 import UserGroupScreen from './screens/UserGroupsScreen';
 import SingleGroup from './screens/SingleGroupScreen';
+import UserGroupsAssignedScreen from './screens/UserJoinedGroupsScreen';
+import UserJoinedGroupsScreen from './screens/UserJoinedGroupsScreen';
 
 
 
@@ -51,6 +53,11 @@ const authContext = useContext(AuthContext)
                   {<Route path='/mygroups' element=
                   {!!authContext.isLoggedIn ? <UserGroupScreen /> : <Navigate to='/login' />}
                     />}
+
+                  {<Route path='/joinedgroups' element=
+                  {!!authContext.isLoggedIn ? <UserJoinedGroupsScreen /> : <Navigate to='/login' />}
+                    />}
+
 
 
                   <Route path='/*' element={<PageNotFound/>}  />

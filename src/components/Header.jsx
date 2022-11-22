@@ -45,7 +45,7 @@ const Header = () => {
 
                         <li className="nav-item d-xxl-flex align-items-xxl-center"> <Link to="/creategroup" className="nav-link" id="profil-button"> Create Group</Link></li>
                         <li className="nav-item d-xxl-flex align-items-xxl-center"> <Link to="/mygroups" className="nav-link" id="profil-button"> My Groups</Link></li>
-
+                        <li className="nav-item d-xxl-flex align-items-xxl-center"> <Link to="/joinedgroups" className="nav-link" id="profil-button"> Joined Groups</Link></li>
                          <li className="nav-item"><Link to="/login"><button onClick={logoutHandler} className="btn btn-primary" id="login-button" type="button">Log out</button></Link></li>
 
                         </>
