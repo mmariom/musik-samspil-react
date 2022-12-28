@@ -17,6 +17,8 @@ import CreateGroupScreen from './screens/CreateGroupScreen';
 import UserGroupScreen from './screens/UserGroupsScreen';
 import SingleGroup from './screens/SingleGroupScreen';
 import UserGroupsAssignedScreen from './screens/UserJoinedGroupsScreen';
+import ResetPassword from './screens/ResetPassword';
+import UpdatePassword from './screens/UpdatePassword';
 import UserJoinedGroupsScreen from './screens/UserJoinedGroupsScreen';
 
 
@@ -36,6 +38,8 @@ const authContext = useContext(AuthContext)
                   <Route path='/login' element={<LoginScreen/>}  />
                   <Route path='/signup' element={<RegisterScreen/>}  />
                   <Route path='/group/:id' element={<SingleGroup/>}  />
+                  <Route path='/reset' element={<ResetPassword/>} />
+                  <Route path='/updatePassword/:email/:token' element={<UpdatePassword/>} />
 
 
         
