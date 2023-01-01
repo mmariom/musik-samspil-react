@@ -52,7 +52,7 @@ const [fetchData , setFetchData]= useState([])
     <div className="container py-4 py-xl-5" id="feature_cards_container">
         {/* <div className="row mb-5">
             <div className="col-md-8 col-xl-3 offset-xl-1 text-center d-xl-flex mx-auto justify-content-xl-center align-items-xl-center">
-                <h2 id="features_card_img">Heading</h2>
+                <h2 id="features_card_img">Headingxx</h2>
             </div>
             <div className="col-xl-2 offset-xl-5"></div>
             <div className="col d-xl-flex justify-content-xl-center align-items-xl-center">
