@@ -41,7 +41,7 @@ const authContext = useContext(AuthContext)
         
 
 
-                    {/* Protected routes / needs to be logged  in   */}
+                    {/* Protected routes / needs to be logged  in @  */}
                   {<Route path='/profile' element=
                   {!!authContext.isLoggedIn ? <ProfileScreen /> : <Navigate to='/login' />}
                     />}
