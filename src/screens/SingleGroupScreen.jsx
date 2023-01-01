@@ -36,7 +36,7 @@ const [assignedPeople,setAssignedPeople] = useState()
 useEffect( () => {
     async function fetchData() {
         try{
-            const response = await axios.get(`api/group/${params.id}`)
+            const response = await axios.get(`/api/group/${params.id}`)
             console.log(response)
 
             setTitle(response.data.title);
