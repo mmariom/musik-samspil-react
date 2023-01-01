@@ -32,7 +32,7 @@ const RegisterScreen = () => {
         const enteredPhone= phoneInputRef.current.value;
     
       
-        axios.post('http://localhost:3030/user/register', {
+        axios.post('api/user/register', {
             email: enteredEmail,
             password: enteredPass,
             name: enteredName,
