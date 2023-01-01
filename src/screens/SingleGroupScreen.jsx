@@ -36,7 +36,7 @@ const [assignedPeople,setAssignedPeople] = useState()
 useEffect( () => {
     async function fetchData() {
         try{
-            const response = await axios.get(`http://localhost:3030/group/${params.id}`)
+            const response = await axios.get(`api/group/${params.id}`)
             console.log(response)
 
             setTitle(response.data.title);
@@ -86,7 +86,7 @@ useEffect( () => {
 const  addToGroupHandler = async ()  => {
     console.log("addToGroupHandler  param group id passeds" + params.id + "config id "  + authToken);
 
-    const response = await axios.get(`http://localhost:3030/assignUserToGroup/${params.id}`,config)
+    const response = await axios.get(`api/assignUserToGroup/${params.id}`,config)
     console.log("on addbuttonclick" + response);
     window.location.reload();
 

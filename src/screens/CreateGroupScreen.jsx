@@ -52,7 +52,7 @@ const authToken = authContext.token
         const enteredContact= contactInputRef.current.value;
     
       
-        axios.post('http://localhost:3030/group/create', {
+        axios.post('api/group/create', {
             title: enteredTitle,
             instrument: enteredInstrument,
             description: enteredDescription,

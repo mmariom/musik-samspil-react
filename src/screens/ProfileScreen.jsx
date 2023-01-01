@@ -26,7 +26,7 @@ const config = {
 useEffect( () => {
     async function fetchData() {
         try{
-            const response = await axios.get(`http://localhost:3030/profile`, config)
+            const response = await axios.get(`api/profile`, config)
             console.log(response)
 
             setFullname(response.data.name);

@@ -13,7 +13,7 @@ const [fetchData , setFetchData]= useState([])
     useEffect( () => {
         async function fetchData() {
             try{
-                const response = await axios.get(`http://localhost:3030/group/all`)
+                const response = await axios.get(`api/group/all`)
                 // console.log(response.data)
                 setFetchData(response.data)
             }
