@@ -47,7 +47,7 @@ const ResetPassword = () => {
         <div className="container">
             <div className="row mb-5">
                 <div className="col-md-8 col-xl-6 text-center mx-auto">
-                    <h2>Sign up or die ....</h2>
+                    <h2>Reset password</h2>
                     <p className="w-lg-50"></p>
                 </div>
             </div>
