@@ -7,9 +7,9 @@ const Footer = () => {
     <div className="text-center bg-dark" id="footerID">
         <div className="container text-white py-4 py-lg-5">
             <ul className="list-inline">
-                <li className="list-inline-item me-4"><a className="link-light" href="#">Test1</a></li>
-                <li className="list-inline-item me-4"><a className="link-light" href="#">Test2</a></li>
-                <li className="list-inline-item"><a className="link-light" href="#">Test3</a></li>
+                <li className="list-inline-item me-4"><a className="link-light" href="/">Home</a></li>
+                <li className="list-inline-item me-4"><a className="link-light" href="/mygroups">Groups</a></li>
+                <li className="list-inline-item"><a className="link-light" href="#">Contact</a></li>
             </ul>
             <ul className="list-inline">
                 <li className="list-inline-item me-4"><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" fill="currentColor" viewBox="0 0 16 16" className="bi bi-facebook text-light">

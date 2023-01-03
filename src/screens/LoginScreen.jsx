@@ -98,7 +98,7 @@ const LoginScreen = () => {
 
                                 <div className="mb-3"><button className="btn btn-primary d-block w-100"
                                  type="submit" id="loginregisterbutton">Login</button></div>
-                                <p className="text-muted">Forgot your password?</p>
+                                <a className="text-muted" href="/reset">Forgot your password?</a>
                             </form>
                         </div>
                     </div>
