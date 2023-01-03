@@ -22,7 +22,7 @@ const UpdatePassword = () => {
         console.log("button clicked")
         const enteredPassword = passwordInputRef.current.value;    
       
-        axios.post(`http://localhost:3030/user/reset/${email}/${token}`, {
+        axios.post(`/api/user/reset/${email}/${token}`, {
             password: enteredPassword
         }).then(function (response) {
             
