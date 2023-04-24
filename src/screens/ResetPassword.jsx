@@ -19,7 +19,7 @@ const ResetPassword = () => {
         const enteredEmail = emailInputRef.current.value;
     
       
-        axios.post(`/api/user/generateResetEmail/${enteredEmail}`).then(function (response) {
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/user/generateResetEmail/${enteredEmail}`).then(function (response) {
             
            //display message succesfully registrated
 

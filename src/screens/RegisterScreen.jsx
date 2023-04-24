@@ -31,8 +31,9 @@ const RegisterScreen = () => {
         const enteredName= nameInputRef.current.value;
         const enteredPhone= phoneInputRef.current.value;
     
+
       
-        axios.post('api/user/register', {
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/user/register`, {
             email: enteredEmail,
             password: enteredPass,
             name: enteredName,

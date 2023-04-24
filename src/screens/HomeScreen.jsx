@@ -13,7 +13,9 @@ const [fetchData , setFetchData]= useState([])
     useEffect( () => {
         async function fetchData() {
             try{
-                const response = await axios.get(`api/group/all`)
+                
+
+                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}/group/all`)
                 // console.log(response.data)
                 setFetchData(response.data)
             }

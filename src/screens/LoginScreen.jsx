@@ -25,7 +25,8 @@ const LoginScreen = () => {
         const enteredPass= passwordInputRef.current.value;
 
     
-        axios.post('api/login', {
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/login`, {
+
             email: enteredEmail,
             password: enteredPass
           }).then(function (response) {

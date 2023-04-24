@@ -51,8 +51,8 @@ const authToken = authContext.token
         const enteredLocation= locationInputRef.current.value;
         const enteredContact= contactInputRef.current.value;
     
-      
-        axios.post('api/group/create', {
+        axios.post(`${process.env.REACT_APP_BACKEND_URL}/group/create`, {
+
             title: enteredTitle,
             instrument: enteredInstrument,
             description: enteredDescription,
